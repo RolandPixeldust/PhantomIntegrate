@@ -16,7 +16,7 @@
         var unityInstance = UnityLoader.instantiate("unityContainer", "https://rolandpixeldust.github.io/PhantomIntegrate/Build/TTTREXBuild.json", {onProgress: UnityProgress});
         function SendAccountIdToUnity(value)
         {
-            gameInstance.SendMessage("Master","ctrl",value)
+            unityInstance.SendMessage("Master","ctrl",value)
         }
       </script>
 
