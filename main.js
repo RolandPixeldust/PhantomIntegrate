@@ -39,7 +39,28 @@ const nfts = await getParsedNftAccountsByOwner({
     } catch (error) {
       console.log(error);
     }
-  };
+  };  
+}
 
-  
+
+function getAxios()
+{
+    import axios from "axios";
+    //Function to get all nft data
+    const getNftTokenData = async () => {
+      try {
+        let nftData = await getAllNftData();
+        var data = Object.keys(nftData).map((key) => nftData[key]);                                                                    
+        let arr = [];
+        let n = data.length;
+        for (let i = 0; i < n; i++) {
+          console.log(data[i].data.uri);
+          let val = await axios.get(data[i].data.uri);
+          arr.push(val);
+        }
+        return arr;
+      } catch (error) {
+        console.log(error);
+      }
+    };
 }
