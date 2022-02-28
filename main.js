@@ -18,6 +18,7 @@ function disconnectAccount()
 function getNFTData()
 {
 //get NFT
+document.getElementById("nft-data").innerHTML = "BLALA";
 const getAllNftData = async () => {
     try {
       if (connectData === true) {
@@ -32,7 +33,7 @@ const nfts = await getParsedNftAccountsByOwner({
           connection: connect,
           serialization: true,
         });
-        document.getElementById("nft-data").innerHTML = nfts;
+        
         return nfts;
       }
     } catch (error) {
