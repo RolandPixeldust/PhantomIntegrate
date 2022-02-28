@@ -16,7 +16,8 @@
         var unityInstance = UnityLoader.instantiate("unityContainer", "https://rolandpixeldust.github.io/PhantomIntegrate/Build/TTTREXBuild.json", {onProgress: UnityProgress});
         function SendAccountIdToUnity()
         {
-            unityInstance.SendMessage("Master","ctrl","value sent")
+            var value = this.getAttribute('user-account');
+            unityInstance.SendMessage("Master","ctrl",value)
         }
     </script>
 
@@ -29,6 +30,7 @@
         <button onclick="disconnectAccount()">Log Out</button> 
         <br><br><br>
 
+        pubkey=
         Account:<span id="user-account"></span> </div>
 
         <div class="webgl-content">
