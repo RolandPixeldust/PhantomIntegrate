@@ -19,7 +19,7 @@ function getNFTData()
 {
 //get NFT
 
-document.getElementById("mydata").innerHTML = "NEW TEST";
+document.getElementById("mydata").innerHTML = "NEW TEST2";
 
 const getAllNftData = async () => {
     try {
