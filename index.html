@@ -5,11 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://rolandpixeldust.github.io/PhantomIntegrate/style.css" />
     <script src="https://rolandpixeldust.github.io/PhantomIntegrate/main.js"></script>
+    
+    <link rel="stylesheet" href="https://rolandpixeldust.github.io/PhantomIntegrate/TemplateData/style.css">
+    <script src="https://rolandpixeldust.github.io/PhantomIntegrate/TemplateData/UnityProgress.js"></script>
+    <script src="https://rolandpixeldust.github.io/PhantomIntegrate/Build/UnityLoader.js"></script>
+
     <title>TeddyTrex</title>
+    
+    <script>
+        var unityInstance = UnityLoader.instantiate("unityContainer", "https://rolandpixeldust.github.io/PhantomIntegrate/Build/TTTREXBuild.json", {onProgress: UnityProgress});
+        function SendAccountIdToUnity(value)
+        {
+            gameInstance.SendMessage("Master","ctrl",value)
+        }
+      </script>
+
   </head>
   <body style="text-align: center">
 
-    <div><h1>Riflebird Solana Wallet Connection</h1>
+    <div><h1>Solana Wallet Connection</h1>
         <button onclick="getAccount()" id="clicked">Get  Account</button>
         <button onclick="SendAccountIdToUnity(user-account)" >Send Account ID</button>
         <button onclick="disconnectAccount()">Log Out</button> 
@@ -17,37 +31,13 @@
 
         Account:<span id="user-account"></span> </div>
 
-
-    <canvas id="unity-canvas" width=960 height=600 style="width: 960px; height: 600px; background: #231F20"></canvas>
-    <script src="https://rolandpixeldust.github.io/PhantomIntegrate/Build.loader.js"></script>
-    
-    <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-      }
-
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        dataUrl: "https:/rolandpixeldust.github.io/PhantomIntegrate/Build.data",
-        frameworkUrl: "https://rolandpixeldust.github.io/PhantomIntegrate/Build.framework.js",
-        codeUrl: "https://rolandpixeldust.github.io/PhantomIntegrate/Build.wasm",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Pixeldust",
-        productName: "TeddyTrex",
-        productVersion: "1.0",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      });
-
-      function SendAccountIdToUnity(value)
-        {
-            gameInstance.SendMessage("Master","ctrl",value)
-        }
-    </script>
-
-
+        <div class="webgl-content">
+            <div id="unityContainer" style="width: 960px; height: 600px"></div>
+            <div class="footer">
+              <div class="webgl-logo"></div>
+              <div class="fullscreen" onclick="unityInstance.SetFullscreen(1)"></div>
+              <div class="title">TEDDYTREX2019</div>
+            </div>
+          </div>
   </body>
 </html>
