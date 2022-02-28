@@ -18,6 +18,7 @@ function disconnectAccount()
 function getNFTData()
 {
 //get NFT
+
 document.getElementById("mydata").innerHTML = "BLALA";
 }
 /*
