@@ -14,9 +14,8 @@
     
     <script>
         var unityInstance = UnityLoader.instantiate("unityContainer", "https://rolandpixeldust.github.io/PhantomIntegrate/Build/TTTREXBuild.json", {onProgress: UnityProgress});
-        function SendAccountIdToUnity()
+        function SendAccountIdToUnity(value)
         {
-            var value = this.getAttribute('user-account');
             unityInstance.SendMessage("Master","ctrl",value)
         }
     </script>
@@ -26,11 +25,10 @@
 
     <div><h1>Solana Wallet Connection</h1>
         <button onclick="getAccount()" id="clicked">Get  Account</button>
-        <button onclick="SendAccountIdToUnity()" >Send Account ID</button>
+        <button onclick="SendAccountIdToUnity('user-account')" >Send Account ID</button>
         <button onclick="disconnectAccount()">Log Out</button> 
         <br><br><br>
 
-        pubkey=
         Account:<span id="user-account"></span> </div>
 
         <div class="webgl-content">
