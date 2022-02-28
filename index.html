@@ -1,13 +1,28 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://rolandpixeldust.github.io/PhantomIntegrate/style.css" />
+        <script src="https://rolandpixeldust.github.io/PhantomIntegrate/main.js"></script>
+        <script src="https://rolandpixeldust.github.io/PhantomIntegrate/Build/UnityLoader.js"></script>
+        <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "https://rolandpixeldust.github.io/PhantomIntegrate/Build/webgl.json");
+
+        function SendAccountIdToUnity(value)
+        {
+            gameInstance.SendMessage("Master","ctrl",value)
+        }
+        </script>
     </head>
     <body>
         <div><h1>Riflebird Solana Wallet Connection</h1>
             <button onclick="getAccount()" id="clicked">Get  Account</button>
+            <button onclick="SendAccountIdToUnity(user-account)" >Send Account ID</button>
             <button onclick="disconnectAccount()">Log Out</button> 
             <br><br><br>
+
             Account:<span id="user-account"></span> </div>
-        <script src="https://rolandpixeldust.github.io/PhantomIntegrate/main.js"></script>
+
+
+            <div id="gameContainer" style = "width: 960px; height: 600px; margin: auto"></div>
+        
     </body>
 </html>
