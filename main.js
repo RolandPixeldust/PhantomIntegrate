@@ -19,9 +19,8 @@ function getNFTData()
 {
 //get NFT
 
-document.getElementById("mydata").innerHTML = "BLALA";
-}
-/*
+document.getElementById("mydata").innerHTML = "BLALAsdf";
+
 const getAllNftData = async () => {
     try {
       if (connectData === true) {
@@ -30,7 +29,7 @@ const getAllNftData = async () => {
         let ownerToken = provider.publicKey;
         const result = isValidSolanaAddress(ownerToken);
         console.log("result", result);
-        
+        document.getElementById("mydata").innerHTML = result;
 const nfts = await getParsedNftAccountsByOwner({
           publicAddress: ownerToken,
           connection: connect,
@@ -38,13 +37,14 @@ const nfts = await getParsedNftAccountsByOwner({
         });
         
         return nfts;
+        document.getElementById("mydata").innerHTML = nfts;
       }
     } catch (error) {
       console.log(error);
     }
   };     
 }
-*/
+
 
 
 
