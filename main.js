@@ -19,25 +19,9 @@ function disconnectAccount()
 
 function getNFTData()
 {
-    const getAllNftData = async () => {
-        try {
-          if (connectData === true) {
-            const connect =    createConnectionConfig(clusterApiUrl("devnet"));
-            const provider = getProvider();
-            let ownerToken = provider.publicKey;
-            const result = isValidSolanaAddress(ownerToken);
-            console.log("result", result);
-    const nfts = await getParsedNftAccountsByOwner({
-              publicAddress: ownerToken,
-              connection: connect,
-              serialization: true,
-            });
-            return nfts;
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      };
+    document.getElementById("nft-data").innerHTML = window.solana.getAllNftData;
+    
+    
 }
 
 
