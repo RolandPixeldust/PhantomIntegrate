@@ -1,3 +1,5 @@
+import { WalletMultiButton } from 'solana-wallets-vue'
+
 function getAccount()
 {
     //window.solana.connect();
@@ -17,32 +19,8 @@ function disconnectAccount()
 
 function getNFTData()
 {
-//get NFT
 
-document.getElementById("mydata").innerHTML = "NEW TEST2";
 
-const getAllNftData = async () => {
-    try {
-      if (connectData === true) {
-        const connect =    createConnectionConfig(clusterApiUrl("devnet"));
-        const provider = getProvider();
-        let ownerToken = provider.publicKey;
-        const result = isValidSolanaAddress(ownerToken);
-        console.log("result", result);
-        document.getElementById("mydata").innerHTML = result;
-const nfts = await getParsedNftAccountsByOwner({
-          publicAddress: ownerToken,
-          connection: connect,
-          serialization: true,
-        });
-        
-        return nfts;
-        document.getElementById("mydata").innerHTML = nfts;
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };     
 }
 
 
